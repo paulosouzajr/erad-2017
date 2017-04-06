@@ -1,0 +1,1 @@
+Class 1 probability: 5.70620665179e-23 Class 2 probability: 0.312253658243
