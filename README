@@ -1,0 +1,97 @@
+Distribuição: Ubuntu 16.04.1 LTS x86_64
+
+Pacotes e procedimentos.
+
+ssh (ssh,openssh-server, openssh-client)
+
+apt-get install -y ssh openssh-server openssh-client
+
+Java (default-jre; openjdk-8- jdk), setar o JAVA_HOME
+
+apt-get install -y default-jre openjdk-8- jdk
+
+Como root, execute o comando abaixo
+
+echo JAVA_HOME=/usr/bin/java &gt;&gt; /etc/environment
+
+MongoDB (mongodb-org)
+
+sudo rm /etc/apt/sources.list.d/mongodb*.listc
+
+sudo apt-key adv -- keyserver hkp://keyserver.ubuntu.com:80 -- recv EA312927
+
+echo &quot;deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-
+
+3.2.list
+
+sudo apt-get update
+
+sudo apt install mongodb-org
+
+Iniciar o MongoDB, vai exigir senha do usuário
+
+sudo service mongod start
+
+Python2 e Python3 (python-dev, python3-dev, python-pip)
+
+apt-get install -y python-dev python3-dev
+
+pip e pip3 install (pymongo tweepy)
+
+pip install pymongo tweepy
+
+pip3 install pymongo, tweepy
+
+OBS. Os procedimentos abaixo não devem ser executados como root
+
+Flink 1.1.3 (wget http://archive.apache.org/dist/flink/flink-1.1.3/flink- 1.1.3-bin- hadoop1-
+
+scala_2.10.tgz)
+
+tar -xzf flink-1.1.3- bin-hadoop1- scala_2.10.tgz
+
+Iniciar o Flink (Job Manager e o Task Manager), vai exigir senha do usuário
+
+./flink-1.1.3/bin/start- cluster.sh
+
+Verificar se os processos do flink estão em execução.
+
+jps
+
+A saída do comando deve ser algo semelhante a isso.
+
+28871 TaskManager
+
+28921 Jps
+
+28555 JobManager
+
+Teste
+
+Efetuar Download arquivo countFromFakeStream.py (em anexo)
+
+Ao executar o mesmo, ele irá baixar 100 tweets em tempo real para efetuar um simples teste.
+
+./flink-1.1.3/bin/pyflink3.sh ~/Downloads/countFromFakeStream.py
+
+Se ele não retornar erros está ok.
+
+Para verificar se tem algum dado no banco, deve-se executar:
+
+mongo
+
+dentro do banco de dados, selecione o banco com o comando.
+
+use DB_POD
+
+Para mostra alguns tweets - usar &quot;it&quot; para mostrar mais resultados.
+
+db.tweets.find()
+
+db.tweets.count() (mostra o número de bigramas)
+
+kassianoj@gmail.com
+
+prrsjunior@inf.ufrgs.br
+
+https://github.com/paulosouzajr/erad-2017

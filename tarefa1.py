@@ -30,7 +30,7 @@ if __name__ == "__main__":
     #Implementar a função de maps para inserir os dados ao BD
     data \
 		.flat_map() \
-        .group_by() \
+        .group_by(1) \
         .reduce_group() \
         .map() \
         .output()
