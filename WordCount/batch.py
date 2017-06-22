@@ -16,7 +16,8 @@ class Adder(GroupReduceFunction):
 if __name__ == "__main__":
     env = get_environment()
 
-
+    #not using dynamic path. Some part of how pyflink is executing the python code moves it, so the abspath term evaluates to some temp directory.
+    #base_path = sys.argv[0]
     input_file = 'file:///home/souza/Downloads/ERAD_alunos/hillary_data-tiny.txt'
     output_file = 'file:///home/souza/Downloads/ERAD_alunos/out.txt'
 

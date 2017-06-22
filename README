@@ -1,6 +1,8 @@
-Distribuição: Ubuntu 16.04.1 LTS x86_64
+Python Flink™ ERAD Naive Bayes
+==============================
 
 Pacotes e procedimentos.
+========================
 
 ssh (ssh,openssh-server, openssh-client)
 
@@ -50,6 +52,9 @@ scala_2.10.tgz)
 
 tar -xzf flink-1.1.3- bin-hadoop1- scala_2.10.tgz
 
+Execução
+========
+
 Iniciar o Flink (Job Manager e o Task Manager), vai exigir senha do usuário
 
 ./flink-1.1.3/bin/start- cluster.sh
@@ -66,17 +71,11 @@ A saída do comando deve ser algo semelhante a isso.
 
 28555 JobManager
 
-Teste
+./flink-1.1.3/bin/pyflink3.sh example.py
 
-Efetuar Download arquivo countFromFakeStream.py (em anexo)
+Para executar os exemplos é necessário definir o path absoluto dos arquivos de input e output.
 
-Ao executar o mesmo, ele irá baixar 100 tweets em tempo real para efetuar um simples teste.
-
-./flink-1.1.3/bin/pyflink3.sh ~/Downloads/countFromFakeStream.py
-
-Se ele não retornar erros está ok.
-
-Para verificar se tem algum dado no banco, deve-se executar:
+Para utilizar o banco de dados, deve-se executar:
 
 mongo
 
@@ -88,10 +87,34 @@ Para mostra alguns tweets - usar &quot;it&quot; para mostrar mais resultados.
 
 db.tweets.find()
 
-db.tweets.count() (mostra o número de bigramas)
+db.tweets.count()
+
+Maiores referências em relação ao mongodb: 
+https://docs.mongodb.com/manual/
+
+Exemplos
+========
+
+As aplicações estão separadas por pasta. 
+Bigram count -> realiza a contagem por bigramas e armazena no Mongodb
+Word count -> Contagem de palavras, escreve em um arquivo de output
+
+Datasets
+========
+
+Estão disponiveis alguns datasets, separados por quebra de linha, dos tweets realizados na epoca da eleição.
+
+A coleta em tempo real de tweets pode ser feita utilizando a biblioteca Tweepy. A mesma irá utilizar a API do Twitter, por isso é necessário criar uma aplicação   
+em https://apps.twitter.com/. Após criar a aplicação na API é necessário informar ao Tweepy os seguintes campos disponibilizados pela API:
+
+consumer_key = '' 
+consumer_secret = '' 
+access_token = ''
+access_secret = ''
+
+Contato
+#######
 
 kassianoj@gmail.com
 
-prrsjunior@inf.ufrgs.br
-
-https://github.com/paulosouzajr/erad-2017
+paulosouzjunior@gmail.com
