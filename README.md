@@ -1,8 +1,7 @@
 Python Flink™ ERAD Naive Bayes
 ==============================
 
-Pacotes e procedimentos.
-========================
+## Pacotes e procedimentos.
 
 ssh (ssh,openssh-server, openssh-client)
 
@@ -22,9 +21,7 @@ sudo rm /etc/apt/sources.list.d/mongodb*.listc
 
 sudo apt-key adv -- keyserver hkp://keyserver.ubuntu.com:80 -- recv EA312927
 
-echo &quot;deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-
-
-3.2.list
+echo &quot;deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 
 sudo apt-get update
 
@@ -44,7 +41,7 @@ pip install pymongo tweepy
 
 pip3 install pymongo, tweepy
 
-OBS. Os procedimentos abaixo não devem ser executados como root
+### OBS. Os procedimentos abaixo não devem ser executados como root
 
 Flink 1.1.3 (wget http://archive.apache.org/dist/flink/flink-1.1.3/flink- 1.1.3-bin- hadoop1-
 
@@ -112,8 +109,7 @@ consumer_secret = ''
 access_token = ''
 access_secret = ''
 
-Contato
-=======
+### Contato
 
 kassianoj@gmail.com
 
